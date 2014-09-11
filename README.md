@@ -5,7 +5,7 @@ A server listening to cookie submission to steal session, supporting writing plu
 
     sief = thief + safe
 
-This is a project to steal session, and to make your site safe.
+This is a project to steal sessions, and to make your site safe.
 
 ## Usage
 
