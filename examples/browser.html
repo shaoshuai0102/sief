@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <script>
+      function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        var expires = "expires="+d.toGMTString();
+        document.cookie = cname + "=" + cvalue + "; " + expires + "; domain=";
+      }
+
+      setCookie('a', '1');
+    </script>
+    <script>
+      var img = document.createElement('img');
+      img.src="http://localhost:3000/xxx.png?c=" + encodeURIComponent(document.cookie);
+      document.body.appendChild(img);
+    </script>
+  </body>
+</html>
