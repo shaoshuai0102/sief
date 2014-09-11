@@ -17,20 +17,22 @@ app.get('/xxx.png', function *() {
   result.cookies = query.c;
   result.referer = query.referer || this.request.header.referer;
 
-  debug(result);
-
   this.body = 'done';
 
   var host = URL.parse(result.referer).host;
-
   var domain = tld.getDomain(host);
-  if (domain) {
-    debug('domain = ', domain)
+
+  var pluginName = result.plugin = query.plugin || domain;
+
+  debug(result);
+
+  if (pluginName) {
+    debug('pluginName = ', pluginName)
     process.nextTick(function () {
-      dispatch(domain, result);
+      dispatch(pluginName, result);
     });
   } else {
-    debug('domain not found');
+    debug('pluginName is blank');
   }
 });
 
