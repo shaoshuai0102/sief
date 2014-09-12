@@ -30,6 +30,7 @@
     "koa-router": "~3.3.1",
     "phridge": "~1.0.6",
     "request": "~2.42.0",
+    "chokidar": "git://github.com/paulmillr/chokidar#aac30adebad64f567c452d00e16f284a7e9b5305",
     "tldjs": "~1.5.0"
   }
 }
