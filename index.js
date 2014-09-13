@@ -10,6 +10,18 @@ var tld = require('tldjs');
 app.use(logger());
 app.use(router(app));
 
+var requests = {};
+
+var env = process.env;
+
+var timeout = Number(env.TIMEOUT * 1000);
+timeout = timeout == 0 ? 0 : (timeout || 300000);
+if (timeout == 0) {
+  debug('Request will be processed every time');
+} else {
+  debug('Same request will be ignored within ' + (timeout/1000) + ' seconds' );
+}
+
 app.get('/xxx.png', function *() {
   var result = {};
 
@@ -19,7 +31,7 @@ app.get('/xxx.png', function *() {
 
   this.body = 'done';
 
-  var host = URL.parse(result.referer).host;
+  var host = result.referer ? URL.parse(result.referer).host : '';
   var domain = tld.getDomain(host);
 
   var pluginName = result.plugin = query.plugin || domain;
@@ -28,12 +40,29 @@ app.get('/xxx.png', function *() {
 
   if (pluginName) {
     debug('pluginName = ', pluginName)
-    process.nextTick(function () {
-      dispatch(pluginName, result);
-    });
+
+    var key = pluginName + '/' + result.cookies;
+
+    if (!requests[key]) {
+      requests[key] = result;
+
+      // reprocess request 5min later if recieved
+      setTimeout(function() {
+        delete requests[key];
+      }, timeout);
+
+      process.nextTick(function () {
+        dispatch(pluginName, result);
+      });
+    } else {
+      debug('Same request recieved before, ignored');
+    }
+
   } else {
-    debug('pluginName is blank');
+    debug('PluginName is blank, ignored');
   }
+
+
 });
 
 app.listen(3000);
