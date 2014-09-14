@@ -1,14 +1,46 @@
-#!/usr/bin/env node
+#!/usr/bin/env node --harmony
 
 var package = require('../package.json');
 var program = require('commander');
+var path = require('path');
+
+function resolvePlugin(files) {
+  var cwd = process.cwd();
+  return files.map(function(file) {
+    return path.normalize(cwd + '/' + file);
+  });
+}
 
 program
   .version(package.version)
-  //.option('-p, --peppers', 'Add peppers')
-  //.option('-c, --cheese [type]', 'Add the specified type of cheese [marble]', 'marble')
+  .usage('[options] <plugin|dir ...>')
+  .option('-i, --ignore-time [seconds]', 'specify seconds during which same requests will be ignored [300]', 300)
+  .option('-p, --port [port]', 'specify the port sief server listening to [3000]', 3000)
+  .option('-v, --verbose', 'show more info')
   .parse(process.argv);
 
-//if (program.peppers) console.log('  - peppers');
-//console.log('  - %s cheese', program.cheese);
+if (program.verbose) {
+  process.env.DEBUG = '*';
+  // the first time of requiring 'debug' must be called after DEBUG setting
+  require('debug');
+}
+
+var debug = require('debug')('cli');
+
+var api = require('../index');
+
+program.plugins = resolvePlugin(program.args);
+
+var options = {
+  ignoreTime: program.ignoreTime,
+  port: program.port,
+  plugins: program.plugins
+};
+
+debug('Options: ');
+for (var o in options) {
+  debug('  - ' + o + ': ' + options[o]);
+}
+
+api.serve(options);
 
