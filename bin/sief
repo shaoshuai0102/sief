@@ -27,8 +27,6 @@ if (program.verbose) {
 
 var debug = require('debug')('cli');
 
-var api = require('../index');
-
 program.plugins = resolvePlugin(program.args);
 
 var options = {
@@ -41,6 +39,8 @@ debug('Options: ');
 for (var o in options) {
   debug('  - ' + o + ': ' + options[o]);
 }
+
+var api = require('../index');
 
 api.serve(options);
 
