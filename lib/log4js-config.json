@@ -1,0 +1,6 @@
+{
+  "appenders": [
+    { "type": "console" },
+    { "type": "file", "filename": "access.log", "category": "access" }
+  ]
+}
