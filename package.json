@@ -20,6 +20,9 @@
   "bugs": {
     "url": "https://github.com/shaoshuai0102/thief/issues"
   },
+  "bin": {
+    "sief": "./bin/sief"
+  },
   "homepage": "https://github.com/shaoshuai0102/thief",
   "dependencies": {
     "cheerio": "~0.17.0",
@@ -33,6 +36,7 @@
     "phridge": "~1.0.6",
     "request": "~2.42.0",
     "tldjs": "~1.5.0",
-    "underscore": "~1.7.0"
+    "underscore": "~1.7.0",
+    "winston": "~0.7.3"
   }
 }
