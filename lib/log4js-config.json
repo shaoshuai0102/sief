@@ -1,6 +1,12 @@
 {
   "appenders": [
     { "type": "console" },
-    { "type": "file", "filename": "access.log", "category": "access" }
+    {
+      "type": "dateFile",
+      "filename": "access.log",
+      "pattern": "-yyyy-MM-dd",
+      "alwaysIncludePattern": false,
+      "category": "access"
+    }
   ]
 }
