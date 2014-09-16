@@ -7,6 +7,13 @@
       "pattern": "-yyyy-MM-dd",
       "alwaysIncludePattern": false,
       "category": "access"
+    },
+    {
+      "type": "dateFile",
+      "filename": "socket.io.log",
+      "pattern": "-yyyy-MM-dd",
+      "alwaysIncludePattern": false,
+      "category": "socket.io"
     }
   ]
 }
