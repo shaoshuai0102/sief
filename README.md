@@ -12,10 +12,11 @@ This is a project to steal sessions, and to make your site safe.
 ## Features
 
 * Request to an image to upload cookies stolen by xss/network eavsdropping/dns hijack/other.
-* Log persistence
-* Prebuilt plugins to attack renren.com, weibo.com, wx.qq.com
-* Write your own plugin to do other attacks you desired
-* View real-time cookie submissions and login those hijacked sessions directly in browser with [Sief Chrome Extension](https://github.com/shaoshuai0102/sief-chrome-extension)
+* Log persistence.
+* Prebuilt plugins to attack renren.com, weibo.com, wx.qq.com.
+* Write your own plugin to do other attacks you desired.
+* View real-time cookie submissions and login those hijacked sessions directly in browser with [Sief Chrome Extension](https://github.com/shaoshuai0102/sief-chrome-extension).
+* Ignore cookie submissions if the same one is received before during a specified period of time to protect your server.
 
 ## Install
 
