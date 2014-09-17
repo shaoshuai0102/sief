@@ -7,6 +7,11 @@ A server listening to cookie submission to hijack session, supporting writing pl
 
 This is a project to hijack sessions, and also a project to make your site safer, depending on the way you use it.
 
+## Philosophy
+
+* Do **NOT** steal cookies, only accept cookies from everywhere(xss, network eavsdropping, dns hijacking…)
+* Focus on the exploitation of session hijacking.
+
 ## Features
 
 * Request to an image to upload cookies stolen by xss/network eavsdropping/dns hijack/other.
