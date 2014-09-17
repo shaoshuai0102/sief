@@ -1,22 +1,20 @@
 sief
 =============
 
-NOTICE: This project is under development, nut ready to use yet.
-
 A server listening to cookie submission to hijack session, supporting writing plugins for site specific attacks.
 
     sief = thief + safe
 
-This is a project to steal sessions, and to make your site safe.
+This is a project to hijack sessions, and also a project to make your site safer, depending on the way you use it.
 
 ## Features
 
 * Request to an image to upload cookies stolen by xss/network eavsdropping/dns hijack/other.
 * Log persistence.
 * Prebuilt plugins to attack renren.com, weibo.com, wx.qq.com.
-* Write your own plugin to do other attacks you desired.
-* View real-time cookie submissions and login those hijacked sessions directly in browser with [Sief Chrome Extension](https://github.com/shaoshuai0102/sief-chrome-extension).
-* Ignore cookie submissions if the same one is received before during a specified period of time to protect your server.
+* Write your own plugins to do other attacks you desired. Plugins are loaded/reloaded/unloaded when added/changed/removed automatically, no need to restart.
+* View real-time cookie submissions and login to those hijacked sessions directly in browser with [Sief Chrome Extension](https://github.com/shaoshuai0102/sief-chrome-extension).
+* Ignore cookie submissions if the same one is received before, during a specified period of time, to protect your server.
 
 ## Install
 
