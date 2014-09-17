@@ -15,7 +15,7 @@ This is a project to steal sessions, and to make your site safe.
 * Log persistence
 * Prebuilt plugins to attack renren.com, weibo.com, wx.qq.com
 * Write your own plugin to do other attacks you desired
-* View real-time cookie submissions and login those hijacked sessions directly in browser with a chrome extension.[Sief Chrome Extension](https://github.com/shaoshuai0102/sief-chrome-extension)
+* View real-time cookie submissions and login those hijacked sessions directly in browser with [Sief Chrome Extension](https://github.com/shaoshuai0102/sief-chrome-extension)
 
 ## Install
 
