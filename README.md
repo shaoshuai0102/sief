@@ -23,7 +23,7 @@ This is a project to steal sessions, and to make your site safe.
 
 2. Install sief
 
-       npm install sief -g
+   `npm install sief -g`
 
 ## Usage
 
