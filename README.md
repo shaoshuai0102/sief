@@ -19,7 +19,11 @@ This is a project to steal sessions, and to make your site safe.
 
 ## Install
 
-    npm install sief -g
+1. Install PhantomJS
+
+2. Install sief
+
+       npm install sief -g
 
 ## Usage
 
